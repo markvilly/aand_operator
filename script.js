@@ -167,3 +167,14 @@ console.log(conditionalExec(false, sayHello, sayWord));
 // };
 
 // console.log(condExec(true, sayHello, sayWord));
+
+console.log("-----NULLISH COALESSCING OPERATOR----");
+
+restaurant.numGuests = 0;
+
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+const guests3 = restaurant.numGuests ?? 10;
+
+console.log(guests3);
