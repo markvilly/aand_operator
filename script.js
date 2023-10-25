@@ -91,7 +91,7 @@ restaurant.orderPizzas && restaurant.orderPizzas("mushrooms", "spinach");
 // Conditional Function Call: done
 // Write a function that takes a boolean value and a function as arguments. If the boolean is true, the function should be called. If the boolean is false, the function should not be called, and the function should return undefined.
 
-// Safe Property Access:
+// Safe Property Access: done
 // The Create a function that takes an object and a property name as arguments. function should return the value of the property if it exists in the object, and undefined if the property is not found. Use short-circuiting to implement this behavior.
 
 // Conditional Execution:
@@ -120,6 +120,9 @@ const funCall = function (bol, fun) {
 const sayHello = function () {
   return "Hello, world";
 };
+const sayWord = function () {
+  return "Word?";
+};
 
 console.log(funCall(false, sayHello));
 
@@ -135,9 +138,32 @@ console.log(condFun(true, sayHello));
 // Safe Property Access:
 // The Create a function that takes an object and a property name as arguments. function should return the value of the property if it exists in the object, and undefined if the property is not found. Use short-circuiting to implement this behavior.
 
+const safePropAcc = function (obj, prop) {
+  return obj && obj[prop];
+};
+
 const myObject = {
   name: "John",
   age: 30,
 };
 
-console.log(myObject["name"]);
+console.log(safePropAcc(myObject, "name")); // John
+console.log(safePropAcc(myObject, "age")); // 30
+console.log(safePropAcc(null, "city")); // undefined
+
+console.log("--------QSN 5------");
+// Conditional Execution:
+// Write a function that takes a boolean condition and two functions as arguments. If the condition is true, execute the first function. If the condition is false, execute the second function. Make use of short-circuiting.
+
+const conditionalExec = function (boole, fun1, fun2) {
+  return (boole && fun1()) || (!boole && fun2());
+};
+
+console.log(conditionalExec(false, sayHello, sayWord));
+
+// we can also use the Ternary short circuit.
+// const condExec = function (bole, func1, func2) {
+//   return bole ? func1() : func2();
+// };
+
+// console.log(condExec(true, sayHello, sayWord));
